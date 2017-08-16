@@ -72,5 +72,8 @@ test "email addresses should be saved as lower-case" do
     assert_not @user.valid?
   end
 
+  test "authenticated? should return false for a user with nil digest" do
+    assert_not @user.authenticated?('')
+  end
 
 end
