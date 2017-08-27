@@ -1,9 +1,12 @@
+<% require 'date'%>
 <% provide(:title, 'All users') %>
-<h1>All users</h1>
+<h1>予定表</h1>
 <%= will_paginate %>
-
-<ul class="users">
+<table class="users", border=1 >
+  <th> name </th>
+  <% (Date.today..Date.today+7).each do |today| %>
+  <th><%= today%> </th>
+  <% end %>
   <%= render @users %>
-</ul>
-
+</table>
 <%= will_paginate %>
